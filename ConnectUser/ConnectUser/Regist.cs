@@ -5,37 +5,37 @@ namespace ConnectUser;
 
 public class Regist
 {
-    public async Task<string> InitUser()
+    public string InitUser()
     {
-        try
+        while (true)
         {
-            var connect = "Server=localhost;port=49752;Database=Shop;Uid=root;pwd=root;charset=utf8";
-            var mySQLConnect = new MySqlConnection(connect);
-
-            mySQLConnect.Open();
-            Console.Write("конект");
-            Console.Write("введите ваш id: ");
-            string inputUserId = Console.ReadLine();
-            Console.Write("введите ваш Name: ");
-            string inputUserName = Console.ReadLine();
-            Console.Write("введите ваш Pass: ");
-            string inputUserPass = Console.ReadLine();
-            
-            var command = "INSERT INTO Shop (Id, name, pass) VALUES ('2', `Edg2ar`, `12342567`)";
-            MySqlCommand sqlCommand = new MySqlCommand(command, mySQLConnect);
-            
-            int push = sqlCommand.ExecuteNonQuery();
-            if (push > 0)
+            try
             {
-                Console.WriteLine("good");
+                var connect = "Server=localhost;port=58583;Database=Shop;Uid=root;pwd=root;charset=utf8";
+                var mySQLConnect = new MySqlConnection(connect);
+
+                mySQLConnect.Open();
+                Console.WriteLine("конект");
+                Console.Write("введите ваш id: ");
+                string inputUserId = Console.ReadLine();
+                int converId = Convert.ToInt32(inputUserId);
+                Console.Write("введите ваш Name: ");
+                string inputUserName = Console.ReadLine();
+                Console.Write("введите ваш Pass: ");
+                string inputUserPass = Console.ReadLine();
+                int converPas = Convert.ToInt32(inputUserPass);
+            
+                var command = $"INSERT INTO `Shop` (Id, name, pass) VALUES ({converId},{inputUserName},{converPas})";
+                MySqlCommand sqlCommand = new MySqlCommand(command, mySQLConnect);
+
+                sqlCommand.ExecuteNonQuery().ToString();
+                mySQLConnect.Close();
+                return inputUserId;
             }
-            mySQLConnect.Close();
-            return inputUserId;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
+            catch (Exception e)
+            {
+                Console.WriteLine("не верный ответ");
+            }
         }
     }
 }

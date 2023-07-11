@@ -7,37 +7,40 @@ public class Select
 {
     public string SelectDB()
     {
-        try
+        while (true)
         {
-            var connect = "Server=localhost;port=49752;Database=Shop;Uid=root;pwd=root;charset=utf8";
-            var mySQLConnect = new MySqlConnection(connect);
-
-            mySQLConnect.Open();
-            Console.WriteLine("connect");
-            string sql = "SELECT * FROM `Shop`";
-            MySqlCommand sqlCommand = new MySqlCommand(sql, mySQLConnect);
-
-            using (MySqlDataAdapter adapter = new MySqlDataAdapter(sqlCommand))
+            try
             {
-                DataSet dataSet = new DataSet();
+                var connect = "Server=localhost;port=58583;Database=Shop;Uid=root;pwd=root;charset=utf8";
+                var mySQLConnect = new MySqlConnection(connect);
 
-                adapter.Fill(dataSet);
+                mySQLConnect.Open();
+                Console.WriteLine("connect");
+                string sql = "SELECT * FROM `Shop`";
+                MySqlCommand sqlCommand = new MySqlCommand(sql, mySQLConnect);
 
-                foreach (DataRow dataRow in dataSet.Tables[0].Rows)
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(sqlCommand))
                 {
-                    for (int i = 0; i < dataSet.Tables[0].Columns.Count; i++)
+                    DataSet dataSet = new DataSet();
+
+                    adapter.Fill(dataSet);
+
+                    foreach (DataRow dataRow in dataSet.Tables[0].Rows)
                     {
-                        Console.Write(dataRow[i] + "\t");
+                        for (int i = 0; i < dataSet.Tables[0].Columns.Count; i++)
+                        {
+                            Console.WriteLine(dataRow[i] + "\t");
+                        }
                     }
                 }
-            }
             
-            return "";
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
+                return "";
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
     }
 }
