@@ -25,24 +25,26 @@
         <nav class="Regist_Active" id="Regist_Active">
             <input id="nameInput" type="text" name="name" placeholder="Логин"/>
             <input id="mailInput" type="text" name="mail" placeholder="Почта"/>
-            <input id="passInput" type="text" name="pass" placeholder="Пароль"/>
-            <input id="replace_PassInput" type="text" name="replcePass" placeholder="Повторить пароль"/>
-            <button onclick="registButton()" class="PostRegist" id="PostRegist">Создать</button>
+            <input id="passInput" type="password" name="pass" placeholder="Пароль"/>
+            <input id="replace_PassInput" type="password" name="replcePass" placeholder="Повторить пароль"/>
+            <div asp-validation-summary="ModelOnly"></div>
+            <button type="submit" onclick="registButton()" class="PostRegist" id="PostRegist">Создать</button>
         </nav>
     </form>
     <form method="post" asp-controller="Home" asp-action="Authorized">
-            <nav class="Login_Active" id="Login_Active">
-                    <input name="name" placeholder="Логин"/>
-                    <input name="pass" placeholder="Пароль"/>
-                    <button class="PostLogin">Войти</button>
-                </nav>
-        </form>
+        <nav class="Login_Active" id="Login_Active">
+            <input name="name" placeholder="Логин"/>
+            <input name="pass" placeholder="Пароль"/>
+            <div asp-validation-summary="ModelOnly"></div>
+            <button class="PostLogin">Войти</button>
+        </nav>
+    </form>
     <button class="button_conclusion"></button>
     <button class="button_advertisement"></button>
 </main>
 <footer>
-    <script src="js/Regist.js"></script>
+    
 </footer>
+<script src="js/Regist.js"></script>
 </body>
 </html>
-
