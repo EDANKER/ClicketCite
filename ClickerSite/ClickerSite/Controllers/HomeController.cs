@@ -77,9 +77,10 @@ public class HomeController : Controller
         foreach (var listDes in listTable)
         {
             Console.WriteLine(listDes);
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid && listDes != user.Name && listDes != user.Pass)
             {
                 Console.WriteLine("ошибка");
+                return RedirectToAction("Main");
             }
         }
 
