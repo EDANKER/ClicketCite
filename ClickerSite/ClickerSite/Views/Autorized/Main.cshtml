@@ -21,7 +21,7 @@
     </nav>
 </header>
 <main>
-    <form method="post" asp-controller="Home" asp-action="Main">
+    <form method="post" asp-controller="Autorized" asp-action="Main">
         <nav class="Regist_Active" id="Regist_Active">
             <input id="nameInput" type="text" name="name" placeholder="Логин"/>
             <input id="mailInput" type="text" name="mail" placeholder="Почта"/>
@@ -31,7 +31,7 @@
             <button type="submit" onclick="registButton()" class="PostRegist" id="PostRegist">Создать</button>
         </nav>
     </form>
-    <form method="post" asp-controller="Home" asp-action="Authorized">
+    <form method="post" asp-controller="Autorized" asp-action="Login">
         <nav class="Login_Active" id="Login_Active">
             <input name="name" placeholder="Логин"/>
             <input name="pass" placeholder="Пароль"/>

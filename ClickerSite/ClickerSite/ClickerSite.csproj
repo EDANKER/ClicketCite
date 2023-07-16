@@ -9,10 +9,17 @@
     <ItemGroup>
       <PackageReference Include="MySql.Data" Version="8.0.33" />
       <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.22" />
+      <PackageReference Include="NLog.Extensions.Logging" Version="5.3.2" />
+      <PackageReference Include="NLog.Web.AspNetCore" Version="5.3.2" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Views\Authorized" />
+      <_ContentIncludedByDefault Remove="Views\Autorized\Authorized.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Profile\UserProfile.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Views\Home" />
     </ItemGroup>
 
 </Project>

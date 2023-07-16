@@ -16,24 +16,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\edgar\ConnectDataBase\ClickerSite\ClickerSite
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/edgar/ConnectDataBase/ClickerSite/ClickerSite/Views/Home/Authorized.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBdXRob3JpemVkLmNzaHRtbA==
+[C:/Users/edgar/ConnectDataBase/ClickerSite/ClickerSite/Views/Account/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/edgar/ConnectDataBase/ClickerSite/ClickerSite/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[C:/Users/edgar/ConnectDataBase/ClickerSite/ClickerSite/Views/Autorized/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JpemVkXExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/edgar/ConnectDataBase/ClickerSite/ClickerSite/Views/Home/Main.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNYWluLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/edgar/ConnectDataBase/ClickerSite/ClickerSite/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/edgar/ConnectDataBase/ClickerSite/ClickerSite/Views/Profile/UserProfile.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxVc2VyUHJvZmlsZS5jc2h0bWw=
+[C:/Users/edgar/ConnectDataBase/ClickerSite/ClickerSite/Views/Autorized/Main.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JpemVkXE1haW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/edgar/ConnectDataBase/ClickerSite/ClickerSite/Views/Shared/Error.cshtml]
