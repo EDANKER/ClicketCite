@@ -15,17 +15,17 @@ public class AutorizedController : Controller
     }
     
     [HttpGet]
-    public IActionResult Main() => View();
+    public IActionResult Registartion() => View();
 
     [HttpPost]
-    public async Task<IActionResult> Main(User user)
+    public async Task<IActionResult> Registartion(User user)
     {
         try
         {
             if (!ModelState.IsValid)
             {
                 Console.WriteLine("ошибка");
-                return RedirectToAction();
+                return RedirectToAction("Registartion");
             }
 
             string connect = "Server=localhost;port=63294;Database=Click;Uid=root;pwd=root;charset=utf8";
@@ -78,7 +78,7 @@ public class AutorizedController : Controller
             if (!ModelState.IsValid && listDes != user.Name && listDes != user.Pass)
             {
                 Console.WriteLine("ошибка");
-                return RedirectToAction();
+                return RedirectToAction("Registartion");
             }
         }
 
