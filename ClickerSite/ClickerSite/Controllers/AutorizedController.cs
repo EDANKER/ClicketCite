@@ -5,6 +5,7 @@ using ClickerSite.Models;
 using MySql.Data.MySqlClient;
 
 namespace ClickerSite.Controllers;
+
 public class AutorizedController : Controller
 {
     private readonly ILogger<AutorizedController> _logger;
@@ -13,7 +14,7 @@ public class AutorizedController : Controller
     {
         _logger = logger;
     }
-    
+
     [HttpGet]
     public IActionResult Registartion() => View();
 
@@ -28,7 +29,7 @@ public class AutorizedController : Controller
                 return RedirectToAction("Registartion");
             }
 
-            string connect = "Server=localhost;port=63294;Database=Click;Uid=root;pwd=root;charset=utf8";
+            string connect = "Server=localhost;port=63705;Database=Click;Uid=root;pwd=root;charset=utf8";
             var sqlConnect = new MySqlConnection(connect);
             sqlConnect.Open();
             Console.WriteLine("connect");
@@ -48,40 +49,32 @@ public class AutorizedController : Controller
             throw;
         }
     }
-    
+
     [HttpPost]
     public async Task<IActionResult> Login(User user)
     {
-        var listTable = new List<string>();
-        string connect = "Server=localhost;port=63294;Database=Click;Uid=root;pwd=root;charset=utf8";
-        var sqlConnect = new MySqlConnection(connect);
-        sqlConnect.Open();
-        Console.WriteLine("connect");
-        var command = "SELECT * FROM Click";
-        var sqlCommand = new MySqlCommand(command, sqlConnect);
-        using (MySqlDataAdapter adapter = new MySqlDataAdapter(sqlCommand))
+        try
         {
-            DataSet dataSet = new DataSet();
-            adapter.Fill(dataSet);
-            foreach (DataRow dataRow in dataSet.Tables[0].Rows)
+            string connect = "Server=localhost;port=63705;Database=Click;Uid=root;pwd=root;charset=utf8";
+            var sqlConnect = new MySqlConnection(connect);
+            sqlConnect.Open();
+            Console.WriteLine("connect");
+            var command = "SELECT EXISTS(SELECT * FROM Click WHERE name = @Name AND pass = @Pass)";
+            var sqlCommand = new MySqlCommand(command, sqlConnect);
+            sqlCommand.Parameters.Add("@Name", MySqlDbType.Text).Value = user.Name;
+            sqlCommand.Parameters.Add("@Pass", MySqlDbType.Text).Value = user.Pass;
+            var exist = sqlCommand.ExecuteScalar();
+            var converBoolean = Convert.ToBoolean(exist);
+            if (!converBoolean)
             {
-                for (int i = 0; i < dataSet.Tables[0].Columns.Count; i++)
-                {
-                    listTable.Add(dataRow[i].ToString());
-                }
-            }
-        }
-
-        foreach (var listDes in listTable)
-        {
-            Console.WriteLine(listDes);
-            if (!ModelState.IsValid && listDes != user.Name && listDes != user.Pass)
-            {
-                Console.WriteLine("ошибка");
                 return RedirectToAction("Registartion");
             }
+            return View();
         }
-
-        return View();
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
 }
