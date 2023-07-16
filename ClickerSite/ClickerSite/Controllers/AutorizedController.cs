@@ -24,7 +24,7 @@ public class AutorizedController : Controller
         {
             if (!ModelState.IsValid)
             {
-                Console.WriteLine("ошибка");
+                Console.WriteLine("ошибка3");
                 return RedirectToAction("Registartion");
             }
 
