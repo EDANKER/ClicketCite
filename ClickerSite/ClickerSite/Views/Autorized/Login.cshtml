@@ -9,10 +9,20 @@
 <html>
 <head>
     <title>title</title>
+    <meta charset="UTF-8"/>
 </head>
 <body>
 <div>
-      
+    <div>
+        <form asp-action="Registartion" method="post">
+            <button class="button_DeletedAccaunt">удалить аккаунт</button>
+        </form>
+    </div>
+    <div>
+        <form asp-action="Login" method="post">
+             <input type="text" name="name" placeholder="Логин"/>
+        </form>
+    </div>
 </div>
 </body>
 </html>

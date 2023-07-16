@@ -25,7 +25,6 @@ public class AutorizedController : Controller
         {
             if (!ModelState.IsValid)
             {
-                Console.WriteLine("ошибка3");
                 return RedirectToAction("Registartion");
             }
 
@@ -65,7 +64,7 @@ public class AutorizedController : Controller
             sqlCommand.Parameters.Add("@Pass", MySqlDbType.Text).Value = user.Pass;
             var exist = sqlCommand.ExecuteScalar();
             var converBoolean = Convert.ToBoolean(exist);
-            if (!converBoolean)
+            if (!converBoolean && !ModelState.IsValid)
             {
                 return RedirectToAction("Registartion");
             }

@@ -33,8 +33,8 @@
     </form>
     <form method="post" asp-controller="Autorized" asp-action="Login">
         <nav class="Login_Active" id="Login_Active">
-            <input name="name" placeholder="Логин"/>
-            <input name="pass" placeholder="Пароль"/>
+            <input type="text" name="name" placeholder="Логин"/>
+            <input type="password" name="pass" placeholder="Пароль"/>
             <div asp-validation-summary="ModelOnly"></div>
             <button class="PostLogin">Войти</button>
         </nav>
