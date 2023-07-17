@@ -17,7 +17,8 @@ public class AutorizedController : Controller
 
     [HttpGet]
     public IActionResult Registartion() => View();
-
+    
+    string connect = "Server=localhost;port=56691;Database=Click;Uid=root;pwd=root;charset=utf8";
     [HttpPost]
     public async Task<IActionResult> Registartion(User user)
     {
@@ -28,7 +29,6 @@ public class AutorizedController : Controller
                 return RedirectToAction("Registartion");
             }
 
-            string connect = "Server=localhost;port=63705;Database=Click;Uid=root;pwd=root;charset=utf8";
             var sqlConnect = new MySqlConnection(connect);
             sqlConnect.Open();
             Console.WriteLine("connect");
@@ -48,13 +48,12 @@ public class AutorizedController : Controller
             throw;
         }
     }
-
+    
     [HttpPost]
     public async Task<IActionResult> Login(User user)
     {
         try
         {
-            string connect = "Server=localhost;port=63705;Database=Click;Uid=root;pwd=root;charset=utf8";
             var sqlConnect = new MySqlConnection(connect);
             sqlConnect.Open();
             Console.WriteLine("connect");
@@ -75,5 +74,11 @@ public class AutorizedController : Controller
             Console.WriteLine(e);
             throw;
         }
+    }
+    
+    [HttpGet]
+    public async Task<IActionResult> Login(string name)
+    {
+        return View();
     }
 }

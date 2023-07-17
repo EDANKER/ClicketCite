@@ -13,14 +13,14 @@ public class DeletedAccuntController : Controller
     {
         _logger = logger;
     }
-
-    [HttpDelete]
+    
+    string connect = "Server=localhost;port=56691;Database=Click;Uid=root;pwd=root;charset=utf8";
+    [HttpPost]
     public IActionResult DeletedUser(User user)
     {
-        string connect = "Server=localhost;port=63705;Database=Click;Uid=root;pwd=root;charset=utf8";
         var sqlConnect = new MySqlConnection(connect);
         sqlConnect.Open();
-        var command = "INSERT INTO Click(name,mail,pass,replace_pass) VALUES (@Name, @Mail, @Pass, @Replace_Pass)";
+        var command = "DELETE FROM Click WHERE name = @Name AND mail = @Mail AND pass = @Pass AND replace_pass = @Replace_Pass";
         var sqlCommand = new MySqlCommand(command, sqlConnect);
         sqlCommand.Parameters.Add("@Name", MySqlDbType.Text).Value = user.Name;
         sqlCommand.Parameters.Add("@Mail", MySqlDbType.Text).Value = user.Mail;
