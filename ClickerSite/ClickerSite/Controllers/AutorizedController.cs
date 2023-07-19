@@ -67,18 +67,15 @@ public class AutorizedController : Controller
             {
                 return RedirectToAction("Registartion");
             }
-            return View();
+
+            var listName = new List<string>();
+            listName.Add(user.Name);
+            return View(listName);
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
             throw;
         }
-    }
-    
-    [HttpGet]
-    public async Task<IActionResult> Login(string name)
-    {
-        return View();
     }
 }

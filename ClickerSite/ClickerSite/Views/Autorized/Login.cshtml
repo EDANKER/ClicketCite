@@ -1,3 +1,6 @@
+@using MySql.Data.MySqlClient
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using ClickerSite.Controllers
 @model dynamic
 
 @{
@@ -14,9 +17,15 @@
 <body>
 <div>
     <header>
-        <form method="get" asp-controller="Autorized" asp-action="Login">
-            <p>@Model</p>
-        </form>
+        @foreach (var desNameList in Model)
+        {
+            <p>@desNameList</p>
+            <form asp-controller="RenameDataUser" asp-action="UpdateDataUser" method="post">
+                <input value="@desNameList" type="text" name="NameProfile" placeholder="OldЛогин"/>
+                <input type="text" name="name" placeholder="Логин"/>
+                <button>изменить имя</button>
+            </form>
+        }
     </header>
     <div>
         <form asp-controller="DeletedAccunt" asp-action="DeletedUser" method="post">
@@ -24,13 +33,7 @@
         </form>
     </div>
     <div>
-        <form asp-controller="RenameDataUser" asp-action="UpdateDataUser" method="post">
-            <input type="text" name="name" placeholder="Логин"/>
-            <button>изменить имя</button>
-        </form>
-    </div>
-    <div>
-        <form asp-controller="RenameDataUser" asp-action="SelectDataBase" method="get">
+        <form asp-controller="gettingDataBase" asp-action="SelectDataBase" method="get">
             <button>получить данные</button>
         </form>
     </div>

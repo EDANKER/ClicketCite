@@ -1,4 +1,4 @@
-@model dynamic
+@model System.Collections.Generic.List<string>
 
 @{
     Layout = null;
@@ -12,7 +12,10 @@
 </head>
 <body>
 <div>
-    
+    @foreach (var desList in Model)
+    {
+        <p>@desList</p>
+    }
 </div>
 </body>
 </html>
