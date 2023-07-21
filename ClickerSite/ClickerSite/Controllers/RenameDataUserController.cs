@@ -27,8 +27,8 @@ public class RenameDataUserController : Controller
         var sqlCommand = new MySqlCommand(command, sqlConnect);
         sqlCommand.Parameters.Add("@Name", MySqlDbType.Text).Value = user.Name;
         sqlCommand.Parameters.Add("@OldName", MySqlDbType.Text).Value = profileDataModel.NameProfile;
-        sqlCommand.ExecuteNonQuery();
+        await sqlCommand.ExecuteNonQueryAsync();
+        await sqlConnect.CloseAsync();
         return PartialView();
     }
-    
 }

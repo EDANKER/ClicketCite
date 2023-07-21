@@ -13,22 +13,20 @@ public class DeletedAccuntController : Controller
     {
         _logger = logger;
     }
-    
-    string connect = "Server=localhost;port=56691;Database=Click;Uid=root;pwd=root;charset=utf8";
+
+    string connect = "Server=localhost;port=51363;Database=Click;Uid=root;pwd=root;charset=utf8";
+
     [HttpPost]
-    public IActionResult DeletedUser(User user)
+    public async Task<IActionResult> DeletedUser(User user, int id)
     {
         var sqlConnect = new MySqlConnection(connect);
         sqlConnect.Open();
-        var command = "DELETE FROM Click WHERE name = @Name AND mail = @Mail AND pass = @Pass AND replace_pass = @Replace_Pass";
+        const string command = "DELETE FROM Click WHERE id = @Id";
         var sqlCommand = new MySqlCommand(command, sqlConnect);
-        sqlCommand.Parameters.Add("@Name", MySqlDbType.Text).Value = user.Name;
-        sqlCommand.Parameters.Add("@Mail", MySqlDbType.Text).Value = user.Mail;
-        sqlCommand.Parameters.Add("@Pass", MySqlDbType.Text).Value = user.Pass;
-        sqlCommand.Parameters.Add("@Replace_Pass", MySqlDbType.Text).Value = user.ReplcePass;
-        sqlCommand.ExecuteNonQuery();
+        sqlCommand.Parameters.Add("@@Id", MySqlDbType.Int64).Value = id;
+        await sqlCommand.ExecuteNonQueryAsync();
         sqlConnect.Close();
-        
+
         return View();
     }
 }

@@ -7,13 +7,14 @@ namespace ClickerSite.Controllers;
 public class gettingDataBaseController : Controller
 {
     string connect = "Server=localhost;port=56691;Database=Click;Uid=root;pwd=root;charset=utf8";
+
     [HttpGet]
     public async Task<IActionResult> SelectDataBase(string name)
     {
         var listIUser = new List<string>();
         var command = "SELECT * FROM Click";
         var mysqlConnect = new MySqlConnection(connect);
-        mysqlConnect.Open();
+        await mysqlConnect.OpenAsync();
         var sqlCommand = new MySqlCommand(command, mysqlConnect);
         Console.WriteLine(name);
         var sqlAdapder = new MySqlDataAdapter(sqlCommand);
@@ -26,7 +27,8 @@ public class gettingDataBaseController : Controller
                 listIUser.Add(dataRow[i].ToString());
             }
         }
-        
+
+        await mysqlConnect.CloseAsync();
         return View(listIUser);
     }
 }
