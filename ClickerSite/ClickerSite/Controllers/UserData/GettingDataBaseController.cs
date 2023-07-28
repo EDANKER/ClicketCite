@@ -6,7 +6,7 @@ namespace ClickerSite.Controllers;
 
 public class gettingDataBaseController : Controller
 {
-    string connect = "Server=localhost;port=56691;Database=Click;Uid=root;pwd=root;charset=utf8";
+    string connect = "Server=localhost;port=52345;Database=Click;Uid=root;pwd=root;charset=utf8";
 
     [HttpGet]
     public async Task<IActionResult> SelectDataBase(string name)

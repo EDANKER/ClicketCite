@@ -18,7 +18,7 @@ public class AutorizedController : Controller
     [HttpGet]
     public IActionResult Registartion() => View();
 
-    string connect = "Server=localhost;port=51363;Database=Click;Uid=root;pwd=root;charset=utf8";
+    string connect = "Server=localhost;port=52345;Database=Click;Uid=root;pwd=root;charset=utf8";
 
     [HttpPost]
     public async Task<IActionResult> Registartion(User user)

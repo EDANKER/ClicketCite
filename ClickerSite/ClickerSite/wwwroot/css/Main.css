@@ -122,3 +122,15 @@ input{
     background: #5c636a;
 }
 
+.flexBox{
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    height: 450px;
+    margin: auto;
+}
+
+.buttonFlex{
+    margin:auto;
+}
+

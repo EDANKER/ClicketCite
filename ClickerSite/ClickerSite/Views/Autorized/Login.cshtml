@@ -17,27 +17,14 @@
 <body>
 <div>
     <header>
+        <nav>
+            <a asp-controller="Account" asp-action="Profile">Профиль</a>
+        </nav>
         @foreach (var desNameList in Model)
         {
             <p>@desNameList</p>
-            <form asp-controller="RenameDataUser" asp-action="UpdateDataUser" method="post">
-                <input value="@desNameList" type="text" name="NameProfile" placeholder="OldЛогин"/>
-                <input type="text" name="name" placeholder="Логин"/>
-                <button>изменить имя</button>
-            </form>
         }
     </header>
-    <div>
-        <form asp-controller="DeletedAccunt" asp-action="DeletedUser" method="post">
-            <input name="id"/>
-            <button class="button_DeletedAccaunt">удалить аккаунт</button>
-        </form>
-    </div>
-    <div>
-        <form asp-controller="gettingDataBase" asp-action="SelectDataBase" method="get">
-            <button>получить данные</button>
-        </form>
-    </div>
 </div>
 </body>
 </html>

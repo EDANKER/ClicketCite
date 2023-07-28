@@ -16,8 +16,8 @@
 <body>
 <header class="header">
     <nav class="navFlex">
-        <a class="Login" onclick="KlickLogin()">Вход</a>
-        <a class="Regist" onclick="KlickRegist()">Регистрация</a>
+        <a class="Login" onclick="ClickLogin()">Вход</a>
+        <a class="Regist" onclick="ClickRegist()">Регистрация</a>
     </nav>
 </header>
 <main>
@@ -28,7 +28,7 @@
             <input id="passInput" type="password" name="pass" placeholder="Пароль"/>
             <input id="replace_PassInput" type="password" name="replcePass" placeholder="Повторить пароль"/>
             <div asp-validation-summary="ModelOnly"></div>
-            <button type="submit" onclick="registButton()" class="PostRegist" id="PostRegist">Создать</button>
+            <button type="submit" class="PostRegist" id="PostRegist">Создать</button>
         </nav>
     </form>
     <form method="post" asp-controller="Autorized" asp-action="Login">
@@ -39,12 +39,18 @@
             <button class="PostLogin">Войти</button>
         </nav>
     </form>
-    <button class="button_conclusion"></button>
-    <button class="button_advertisement"></button>
+    <div class="flexBox">
+        <img id="img_box" src="img/pngwing.com (1).png" alt=""/>
+        <img src="img/pngwing.com22.png" alt=""/>
+        <nav class="buttonFlex">
+            <button class="button_conclusion" onclick="ClickBox()" style="color: white">получить деньги</button>
+            <button class="button_advertisement" style="color: white">смотреть рекламу</button>
+        </nav>
+    </div>
 </main>
 <footer>
-    
+
 </footer>
-<script src="js/Regist.js"></script>
 </body>
+<script src="js/Regist.js"></script>
 </html>

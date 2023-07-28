@@ -14,7 +14,7 @@ public class DeletedAccuntController : Controller
         _logger = logger;
     }
 
-    string connect = "Server=localhost;port=51363;Database=Click;Uid=root;pwd=root;charset=utf8";
+    string connect = "Server=localhost;port=52345;Database=Click;Uid=root;pwd=root;charset=utf8";
 
     [HttpPost]
     public async Task<IActionResult> DeletedUser(User user, int id)

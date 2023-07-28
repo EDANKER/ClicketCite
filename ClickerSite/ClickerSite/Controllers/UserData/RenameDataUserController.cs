@@ -14,7 +14,7 @@ public class RenameDataUserController : Controller
         _logger = logger;
     }
 
-    string connect = "Server=localhost;port=56691 ;Database=Click;Uid=root;pwd=root;charset=utf8";
+    string connect = "Server=localhost;port=52345;Database=Click;Uid=root;pwd=root;charset=utf8";
 
     [HttpPost]
     public async Task<IActionResult> UpdateDataUser(User user, ProfileDataModel profileDataModel)
