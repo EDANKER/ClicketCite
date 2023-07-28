@@ -17,5 +17,5 @@ public class User
     [Compare("Pass", ErrorMessage = "Пароли не савподают")]
     public string ReplcePass { get; set; }
     [Required(ErrorMessage = "ввидите данные")]
-    public int balans { get; set; }
+    public string balans { get; set; }
 }

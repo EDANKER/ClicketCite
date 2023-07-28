@@ -13,11 +13,13 @@
 <head>
     <title>title</title>
     <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="~/css/Login.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/Main.css" asp-append-version="true"/>
 </head>
 <body>
 <div>
     <header>
-        <nav>
+        <nav class="navFlex">
             <a asp-controller="Account" asp-action="Profile">Профиль</a>
         </nav>
         @foreach (var desNameList in Model)
@@ -25,6 +27,16 @@
             <p>@desNameList</p>
         }
     </header>
+    <main>
+        <div class="flexBox">
+            <img id="img_box" src="img/singing.com.png" alt=""/>
+            <img src="./img/pngwing.com22.png" alt=""/>
+            <nav class="buttonFlex">
+                <button class="button_conclusion" style="color: white">получить деньги</button>
+                <button class="button_advertisement" style="color: white">смотреть рекламу</button>
+            </nav>
+        </div>
+    </main>
 </div>
 </body>
 </html>

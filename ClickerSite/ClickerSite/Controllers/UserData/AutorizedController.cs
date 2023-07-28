@@ -18,7 +18,7 @@ public class AutorizedController : Controller
     [HttpGet]
     public IActionResult Registartion() => View();
 
-    string connect = "Server=localhost;port=52345;Database=Click;Uid=root;pwd=root;charset=utf8";
+    string connect = "Server=localhost;port=49745;Database=Click;Uid=root;pwd=root;charset=utf8";
 
     [HttpPost]
     public async Task<IActionResult> Registartion(User user)
@@ -71,9 +71,22 @@ public class AutorizedController : Controller
                 return RedirectToAction("Registartion");
             }
 
+            var commandSelect = "SELECT balans FROM Click WHERE name = @Name";
+            var sqlCommandSelect = new MySqlCommand(commandSelect, sqlConnect);
+            sqlCommandSelect.Parameters.Add("@Name", MySqlDbType.Text).Value = user.Name;
+            var sqlAdapter = new MySqlDataAdapter(sqlCommandSelect);
+            var dataSet = new DataSet();
+            await sqlAdapter.FillAsync(dataSet);
+            var sum = "";
+            foreach (DataRow dataRow in dataSet.Tables[0].Rows)
+            {
+                for (int i = 0; i < dataSet.Tables[0].Columns.Count; i++)
+                {
+                    sum = dataRow[i].ToString();
+                }
+            }
             await sqlConnect.CloseAsync();
-            var listName = new List<string>();
-            listName.Add(user.Name);
+            var listName = new List<string>{user.Name, sum};
             return View(listName);
         }
         catch (Exception e)
